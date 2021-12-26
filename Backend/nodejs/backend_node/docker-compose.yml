@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  api:
+    container_name: node-api
+    restart: always
+    build: .
+    ports:
+      - "3000:3000"
+    links:
+      - mongodb
+  mongodb:
+    container_name: node-mongodb
+    image: mongo
+    ports: 
+      - "27018:27017"
+    logging:
+      driver: none
